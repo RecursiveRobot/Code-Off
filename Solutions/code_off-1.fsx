@@ -5,20 +5,23 @@ let inputPath = Path.Combine(__SOURCE_DIRECTORY__ , @"..\code_off-1\code_off-1.i
 let outputPath = Path.Combine(__SOURCE_DIRECTORY__ , @"..\code_off-1\code_off-1.out")
 
 let charValue = function
-    | uc when (int)uc - (int)'A' < 26 -> (int)uc - (int)'A' + 1
-    | lc when (int)lc - (int)'a' < 26 -> (int)lc - (int)'a'
-    | _ -> 0
+| uc when (int)uc - (int)'A' < 26 -> (int)uc - (int)'A' + 1
+| lc when (int)lc - (int)'a' < 26 -> (int)lc - (int)'a'
+| _ -> 0
 
 let rowValue (r : string) =
     r.ToCharArray()
-    |> Seq.sumBy (fun a -> charValue a)
+    |> Seq.sumBy charValue
 
 let duplicateRows rows input =
     rows
     |> Seq.filter (fun a -> a <> input && (rowValue a = rowValue input))
 
-let isPalindrome (a : string) =
-    a = new String(a.ToCharArray() |> Array.rev)
+let reverseString (a : string) =
+    new String(a.ToCharArray() |> Array.rev)
+
+let isPalindrome a =
+    a = reverseString a
 
 let input = 
     File.ReadAllLines inputPath
