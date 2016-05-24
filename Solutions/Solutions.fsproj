@@ -45,6 +45,7 @@
     <None Include="code_off-1.fsx" />
     <None Include="code_off-2.fsx" />
     <None Include="code_off-3.fsx" />
+    <None Include="code_off-10.fsx" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
